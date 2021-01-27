@@ -1,7 +1,12 @@
 .idea/*
+/node_modules/
+package-lock.json
+/log/
+
+
+
 wp-admin/*
 wp-content/languages/*
-
 wp-content/upgrade/*
 wp-content/uploads/*
 wp-content/plugins/*
@@ -32,7 +37,3 @@ wp-signup.php
 wp-trackback.php
 xmlrpc.php
 temp.php
-
-/node_modules/
-/package-lock.json
-/log/
