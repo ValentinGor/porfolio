@@ -201,4 +201,4 @@ gulp.task('watch', watch);
 gulp.task('build', gulp.series(clean, gulp.parallel(styles, scripts, "img", "htaccess", "fonts", "favicon", "copyFiles")));
 
 // Таск запускает таск build и watch последовательно
-gulp.task('dev', gulp.series('build', 'watch'));
+gulp.task('default', gulp.series('build', 'watch'));
