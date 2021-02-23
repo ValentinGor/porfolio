@@ -10,6 +10,7 @@ Site Resume
 `gulp-concat - 2.6.1`
 `gulp-rigger - 0.5.8`
 `gulp-uglify-es - 2.0.0`
+`gulp-sass - 4.1.0`
 
 **Таск для отслеживания изменений**
 >gulp watch
@@ -18,4 +19,4 @@ Site Resume
 >gulp build
 
 **Таск запускает watch и build последовательно**
->gulp dev
+>gulp
