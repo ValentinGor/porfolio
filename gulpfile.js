@@ -23,6 +23,9 @@ const autoprefixer = require('gulp-autoprefixer');
 // Модуль (плагин) для отслеживания изменений в файлах
 const browserSync = require('browser-sync').create();
 
+// Модуль (плагин) Sass
+const sass = require('gulp-sass');
+
 // Модуль (плагин) для вставки темплейтов
 const rigger = require('gulp-rigger');
 
@@ -32,12 +35,12 @@ const rigger = require('gulp-rigger');
 
 // Получаем список файлов CSS и определяем их порядок подключения
 const cssFiles = [
-    './src/css/main.css',
-    './src/css/media.css'
+    './src/css/**/*.scss'
 ];
 
 // Получаем список файлов JS и определяем их порядок подключения
 const jsFiles = [
+    './node_modules/swiper/swiper-bundle.js',
     './src/js/main.js'
 ];
 
@@ -45,7 +48,7 @@ const jsFiles = [
 const src = {
     copy_files: [
         'src/*.html',
-        'src/uploads/*',
+        'src/uploads/*'
     ]
 };
 
@@ -62,7 +65,7 @@ const htmlFiles = [
 // Функция на стили CSS
 function styles() {
     return gulp.src(cssFiles)
-
+        .pipe(sass().on('error', sass.logError))
         // Конкатенация (Объединения) файлов CSS
         .pipe(concat('style.css'))
 
@@ -76,6 +79,7 @@ function styles() {
         // .pipe(cleanCSS({
         //     level: 2
         // }))
+
 
         // Копирование CSS в папку build
         .pipe(gulp.dest('./build/css'))
@@ -130,7 +134,7 @@ function watch() {
     });
 
     // Следить за CSS файлами
-    gulp.watch('./src/css/**/*.css', styles);
+    gulp.watch('./src/css/**/*.scss', styles);
 
     // Следить за JS файлами
     gulp.watch('./src/js/**/*.js', scripts);

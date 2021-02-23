@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="article__info_slider slider_work">
+    <img class="img-fluid active" src="img/img-4.jpg" alt="img">
+    <img class="img-fluid" src="img/img-5.jpg" alt="img">
+    <img class="img-fluid" src="img/img-6.jpg" alt="img">
+    <button class="btnPrev">Prev</button>
+    <button class="btnNext">Next</button>
+</div>
+
+<script>
+
+    // $(document.body).on('click', function (e) {
+    //     if (document.getElementById('mobile__menus').hasClass('active')) {
+    //         if (!$(e.target).closest('#mobile__menus').length) {
+    //             document.getElementById('mobile__menus').classList.remove('active');
+    //         }
+    //     } else {
+    //         return false;
+    //     }
+    // })
+
+
+    let slider = document.querySelectorAll(".slider_work > img");
+    //console.log(slider);
+
+    let btnPrev = document.querySelector(".btnPrev");
+    let btnNext = document.querySelector(".btnNext");
+    //console.log(btnNext);
+
+    let i = 0;
+
+    btnPrev.addEventListener("click", function () {
+        ++i
+        if (i <= slider.length) {
+            slider[i - 1].classList.remove("active");
+            i = i;
+            slider[i].classList.add("active");
+        } else {
+            slider[i - 1].classList.remove("active");
+            slider[i].classList.add("active");
+        }
+    })
+    btnNext.addEventListener("click", function () {
+        ++i
+        if (i >= slider.length) {
+            slider[i - 1].classList.remove("active");
+            i = 0;
+            slider[i].classList.add("active");
+        } else {
+            slider[i - 1].classList.remove("active");
+            slider[i].classList.add("active");
+        }
+    })
+
+    // re - phone = /((\+)?\b(8|38)?(0[\d]{2}))([\d-]{5,8})([\d]{2})/
+    // re - mail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+
+    let form = document.getElementById('reg-form');
+    let buttonSubmit = document.getElementById('buttonSubmit');
+    //console.log(buttonSubmit);
+
+    buttonSubmit.onclick = function (e) {
+        e.preventDefault();
+
+        let formFirstName = document.getElementById('firstName').value;
+        //console.log(formFirstName);
+
+        let formLastName = document.getElementById('lastName').value;
+        //console.log(formLastName);
+
+        console.log(formFirstName);
+
+        let regex = /[0-9]/;
+        if (!regex.test(formFirstName)) {
+            console.log('Не соответствует');
+        } else {
+            console.log('Соответствует');
+            form.submit();
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -7,6 +7,8 @@
     "gulp": "^4.0.2"
   },
   "devDependencies": {
+    "gulp-sass": "^4.1.0",
+    "swiper": "^6.4.15",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "gulp-autoprefixer": "^7.0.1",
